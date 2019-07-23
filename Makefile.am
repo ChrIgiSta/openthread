@@ -43,6 +43,7 @@ AM_DISTCHECK_CONFIGURE_FLAGS        = \
     --enable-diag                     \
     --enable-dns-client               \
     --enable-ftd                      \
+    --enable-ip6-fragmentation        \
     --enable-joiner                   \
     --enable-mac-filter               \
     --enable-mtd                      \
