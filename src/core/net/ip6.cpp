@@ -673,9 +673,9 @@ otError Ip6::HandleFragmentation(Message &aMessage, IpProto aIpProto)
         assertValue = fragment->Write(aMessage.GetOffset(), sizeof(fragmentHeader), &fragmentHeader);
         assert(assertValue == sizeof(fragmentHeader));
 
-        VerifyOrExit(aMessage.CopyTo(aMessage.GetOffset() + (uint16_t)(offset << 3),
+        VerifyOrExit(aMessage.CopyTo(aMessage.GetOffset() + static_cast<uint16_t>(offset << 3),
                                      aMessage.GetOffset() + sizeof(fragmentHeader), payloadFragment,
-                                     *fragment) == (int)payloadFragment,
+                                     *fragment) == static_cast<int>(payloadFragment),
                      error = OT_ERROR_NO_BUFS);
 
         EnqueueDatagram(*fragment);
